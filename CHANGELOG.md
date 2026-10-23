@@ -2,6 +2,11 @@
 
 All notable changes to this project are listed here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## 0.1.2 (2026-10-22)
+
+- **Fixed:** on iPhone the card list could jump back to the top while scrolling, making the bottom cards hard to reach. Background refreshes no longer redraw the list unless a card changed, and redraws keep your scroll position.
+- **Fixed:** card tiles now have a fixed height, because iOS Safari could size them too short, so the page ended before the last row. There is also more room at the bottom, above the Home indicator.
+
 ## 0.1.1 (2026-10-22)
 
 - **New image location:** the project moved to the `crcgroupltd` GitHub account. The image is now `ghcr.io/crcgroupltd/loyalty-cards`; update the `image:` line if your compose file still says `bossmanc0`.
