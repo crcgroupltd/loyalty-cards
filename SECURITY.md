@@ -4,7 +4,7 @@
 
 Please **do not open a public issue** for security problems.
 
-Report privately through GitHub instead: open the [Security tab](https://github.com/BossManC0/loyalty-cards/security) of this repository and choose **Report a vulnerability**. Include:
+Report privately through GitHub instead: open the [Security tab](https://github.com/crcgroupltd/loyalty-cards/security) of this repository and choose **Report a vulnerability**. Include:
 - what an attacker can do;
 - the steps or a proof of concept to reproduce it;
 - the version or commit you tested.

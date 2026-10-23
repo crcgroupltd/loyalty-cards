@@ -5,13 +5,13 @@
   "description": "Self-hosted loyalty card wallet",
   "license": "AGPL-3.0-or-later",
   "author": "CRC Group LTD",
-  "homepage": "https://github.com/BossManC0/loyalty-cards",
+  "homepage": "https://github.com/crcgroupltd/loyalty-cards",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BossManC0/loyalty-cards.git"
+    "url": "git+https://github.com/crcgroupltd/loyalty-cards.git"
   },
   "bugs": {
-    "url": "https://github.com/BossManC0/loyalty-cards/issues"
+    "url": "https://github.com/crcgroupltd/loyalty-cards/issues"
   },
   "type": "module",
   "engines": {

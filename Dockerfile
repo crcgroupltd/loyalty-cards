@@ -4,7 +4,7 @@ FROM node:24-slim
 
 LABEL org.opencontainers.image.title="Loyalty Cards" \
       org.opencontainers.image.description="Self-hosted loyalty card wallet" \
-      org.opencontainers.image.source="https://github.com/BossManC0/loyalty-cards" \
+      org.opencontainers.image.source="https://github.com/crcgroupltd/loyalty-cards" \
       org.opencontainers.image.licenses="AGPL-3.0-or-later" \
       org.opencontainers.image.vendor="CRC Group LTD"
 

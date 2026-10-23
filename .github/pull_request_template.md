@@ -10,4 +10,4 @@
 
 - [ ] `npm test` passes.
 - [ ] New source files have the SPDX license header (see CONTRIBUTING.md).
-- [ ] **I have read [CLA.md](https://github.com/BossManC0/loyalty-cards/blob/main/CLA.md) and agree to it for this contribution.** (Required. Pull requests without this box ticked can't be merged.)
+- [ ] **I have read [CLA.md](https://github.com/crcgroupltd/loyalty-cards/blob/main/CLA.md) and agree to it for this contribution.** (Required. Pull requests without this box ticked can't be merged.)

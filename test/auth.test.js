@@ -10,7 +10,7 @@ test('setup needs the token and only works once', async () => {
   const c = client(app);
   const status = (await c.get('/api/status')).body;
   assert.equal(status.setupRequired, true);
-  assert.equal(status.sourceUrl, 'https://github.com/BossManC0/loyalty-cards', 'AGPL source link is offered');
+  assert.equal(status.sourceUrl, 'https://github.com/crcgroupltd/loyalty-cards', 'AGPL source link is offered');
   assert.equal((await c.post('/api/setup', { token: 'wrong', name: 'a', password: 'long enough pw' })).status, 403);
   assert.equal((await c.post('/api/setup', { token: SETUP_TOKEN, name: 'a', password: 'short' })).status, 400);
   assert.equal((await c.post('/api/setup', { token: SETUP_TOKEN, name: 'alice', password: 'long enough pw' })).status, 200);

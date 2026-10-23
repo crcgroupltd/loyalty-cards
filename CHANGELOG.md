@@ -12,4 +12,4 @@ First public version.
 - **Household accounts:** invite-only, passkeys with a password fallback, per-card sharing, favourites.
 - **Offline:** read-only offline mode on the phone.
 - **Logos:** optional store logos through logo.dev, downloaded and served by your own server.
-- **Self-hosting:** Docker image published to `ghcr.io/bossmanc0/loyalty-cards` (amd64 + arm64), with data in a named volume.
+- **Self-hosting:** Docker image published to `ghcr.io/crcgroupltd/loyalty-cards` (amd64 + arm64), with data in a named volume.

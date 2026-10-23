@@ -24,7 +24,7 @@ export function loadConfig(env = process.env) {
     logLevel: env.LOG_LEVEL ?? 'info',
     // AGPL section 13: users of a hosted copy must be offered its source.
     // If you run a modified version, point this at your modified source.
-    sourceUrl: env.SOURCE_URL || 'https://github.com/BossManC0/loyalty-cards',
+    sourceUrl: env.SOURCE_URL || 'https://github.com/crcgroupltd/loyalty-cards',
     // True when ORIGIN was not set, so startup can warn in production.
     originIsDefault: !env.ORIGIN,
   };

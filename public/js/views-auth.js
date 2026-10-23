@@ -4,7 +4,7 @@
 import { h, field, toast } from './dom.js';
 import { api, navigate, state } from './state.js';
 
-const DEFAULT_SOURCE_URL = 'https://github.com/BossManC0/loyalty-cards';
+const DEFAULT_SOURCE_URL = 'https://github.com/crcgroupltd/loyalty-cards';
 
 // AGPL section 13: every user of a hosted copy is offered its source code.
 export function sourceFooter() {

@@ -17,11 +17,11 @@ A small self-hosted wallet for store loyalty cards, built for iPhone (it works o
 
 You need Docker and a reverse proxy that serves HTTPS (Caddy, Traefik, Nginx Proxy Manager, …). iOS needs HTTPS for passkeys, the camera and offline mode.
 
-The image is published at `ghcr.io/bossmanc0/loyalty-cards` for amd64 and arm64 (Raspberry Pi), so you only need the compose file.
+The image is published at `ghcr.io/crcgroupltd/loyalty-cards` for amd64 and arm64 (Raspberry Pi), so you only need the compose file.
 
 1. Make a folder for it and download the compose file into it:
    ```bash
-   curl -fsSLO https://raw.githubusercontent.com/BossManC0/loyalty-cards/main/docker-compose.yml
+   curl -fsSLO https://raw.githubusercontent.com/crcgroupltd/loyalty-cards/main/docker-compose.yml
    ```
 2. Edit `docker-compose.yml`. Set `ORIGIN` to your public URL, exactly as the browser shows it, for example `https://cards.example.com`.
 3. Start it:
