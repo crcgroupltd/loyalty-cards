@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { FORMATS, validate } from '../public/formats.js';
 import { requireUser } from './auth.js';
 import { releaseLogo } from './logos.js';

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { hashToken, newToken, requireAdmin } from './auth.js';
 import { releaseLogo } from './logos.js';
 

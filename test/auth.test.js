@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { ORIGIN, SETUP_TOKEN, client, inviteUser, makeApp, setupAdmin } from './helpers.js';
@@ -5,7 +8,9 @@ import { ORIGIN, SETUP_TOKEN, client, inviteUser, makeApp, setupAdmin } from './
 test('setup needs the token and only works once', async () => {
   const app = await makeApp();
   const c = client(app);
-  assert.equal((await c.get('/api/status')).body.setupRequired, true);
+  const status = (await c.get('/api/status')).body;
+  assert.equal(status.setupRequired, true);
+  assert.equal(status.sourceUrl, 'https://github.com/BossManC0/loyalty-cards', 'AGPL source link is offered');
   assert.equal((await c.post('/api/setup', { token: 'wrong', name: 'a', password: 'long enough pw' })).status, 403);
   assert.equal((await c.post('/api/setup', { token: SETUP_TOKEN, name: 'a', password: 'short' })).status, 400);
   assert.equal((await c.post('/api/setup', { token: SETUP_TOKEN, name: 'alice', password: 'long enough pw' })).status, 200);

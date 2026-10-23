@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Runtime configuration from environment variables. See .env.example.
 export function loadConfig(env = process.env) {
   const port = Number(env.PORT ?? 3000);
@@ -19,6 +22,11 @@ export function loadConfig(env = process.env) {
     logoApiKey: env.LOGO_API_KEY || null,
     logoProvider: env.LOGO_PROVIDER ?? 'logodev',
     logLevel: env.LOG_LEVEL ?? 'info',
+    // AGPL section 13: users of a hosted copy must be offered its source.
+    // If you run a modified version, point this at your modified source.
+    sourceUrl: env.SOURCE_URL || 'https://github.com/BossManC0/loyalty-cards',
+    // True when ORIGIN was not set, so startup can warn in production.
+    originIsDefault: !env.ORIGIN,
   };
 }
 

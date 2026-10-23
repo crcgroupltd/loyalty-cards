@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Parses Catima exports (Android loyalty card app). The export is a zip
 // holding catima.csv. Format version 2 has three CSV tables separated by
 // blank lines: groups, cards, card-group links. Version 1 is a single cards

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { h, clear, toast } from './js/dom.js';
 import { preloadBarcodes } from './js/barcode.js';
 import { clearDevice } from './js/store.js';

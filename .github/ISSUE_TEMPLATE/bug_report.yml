@@ -1,0 +1,64 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! For security problems, use private reporting instead (see SECURITY.md).
+        Please remove or change any real card numbers before posting.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: e.g. 0.1.0 or a1b2c3d
+    validations:
+      required: true
+  - type: dropdown
+    id: deploy
+    attributes:
+      label: How do you run it?
+      options:
+        - Docker / docker compose
+        - Node.js directly
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Phone and browser
+      description: Also say whether it's opened from the Home Screen or in Safari.
+      placeholder: e.g. iPhone 15, iOS 19.1, Home Screen app
+  - type: dropdown
+    id: barcode
+    attributes:
+      label: Barcode type (if relevant)
+      options:
+        - Not about a barcode
+        - QR Code
+        - Aztec
+        - Data Matrix
+        - PDF417
+        - Code 128
+        - Code 39
+        - Code 93
+        - EAN-13
+        - EAN-8
+        - UPC-A
+        - UPC-E
+        - ITF
+        - Codabar
+        - Don't know
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Server logs (docker compose logs) or screenshots. Remove setup tokens and card numbers.

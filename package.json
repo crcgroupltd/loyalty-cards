@@ -1,8 +1,18 @@
 {
-  "name": "bmc-loyalty-card",
+  "name": "loyalty-cards",
   "version": "0.1.0",
   "private": true,
   "description": "Self-hosted loyalty card wallet",
+  "license": "AGPL-3.0-or-later",
+  "author": "CRC Group LTD",
+  "homepage": "https://github.com/BossManC0/loyalty-cards",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BossManC0/loyalty-cards.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BossManC0/loyalty-cards/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=24"

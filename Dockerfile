@@ -1,4 +1,12 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Copyright (C) 2026 CRC Group LTD
 FROM node:24-slim
+
+LABEL org.opencontainers.image.title="Loyalty Cards" \
+      org.opencontainers.image.description="Self-hosted loyalty card wallet" \
+      org.opencontainers.image.source="https://github.com/BossManC0/loyalty-cards" \
+      org.opencontainers.image.licenses="AGPL-3.0-or-later" \
+      org.opencontainers.image.vendor="CRC Group LTD"
 
 ENV NODE_ENV=production \
     DATA_DIR=/data \
@@ -7,9 +15,11 @@ ENV NODE_ENV=production \
 WORKDIR /app
 
 # Dependencies first for better layer caching. The postinstall step copies
-# browser libraries into public/vendor, so it needs the scripts folder.
-COPY package.json package-lock.json ./
+# browser libraries and their licenses into public/vendor, so it needs the
+# scripts and license files.
+COPY package.json package-lock.json LICENSE THIRD_PARTY_NOTICES.md ./
 COPY scripts ./scripts
+COPY licenses ./licenses
 RUN npm ci --omit=dev && npm cache clean --force
 
 COPY server ./server

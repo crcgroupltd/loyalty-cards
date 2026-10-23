@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Fetching URLs on behalf of users without letting them reach the internal
 // network. The address is checked inside the socket's DNS lookup, so the
 // address that was checked is the one connected to (no DNS-rebinding gap),

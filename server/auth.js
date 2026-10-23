@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { createHash, randomBytes, timingSafeEqual } from 'node:crypto';
 import { hash as argonHash, verify as argonVerify } from '@node-rs/argon2';
 import {
@@ -141,6 +144,7 @@ export async function authRoutes(app) {
   app.get('/api/status', async () => ({
     setupRequired: userCount() === 0,
     logos: Boolean(config.logoApiKey),
+    sourceUrl: config.sourceUrl,
   }));
 
   app.post('/api/setup', { config: authRateLimit }, async (request, reply) => {

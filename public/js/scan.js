@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Barcode reading with zxing-wasm, which works in iOS Safari (it has no
 // BarcodeDetector). The wasm file is served by this app, not a CDN.
 import { FORMATS, normalizeDecoded } from '../formats.js';

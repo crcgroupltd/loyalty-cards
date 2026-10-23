@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // IndexedDB copy of the signed-in user's cards, so they show with no signal.
 const DB_NAME = 'wallet';
 const STORE = 'kv';

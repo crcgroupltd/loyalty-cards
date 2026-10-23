@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Tiny DOM builder. Text is always set as text, never parsed as HTML.
 export function h(tag, props, ...children) {
   const el = document.createElement(tag);

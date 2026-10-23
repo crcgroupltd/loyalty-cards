@@ -1,5 +1,18 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { h, field, toast } from './dom.js';
-import { api, navigate } from './state.js';
+import { api, navigate, state } from './state.js';
+
+const DEFAULT_SOURCE_URL = 'https://github.com/BossManC0/loyalty-cards';
+
+// AGPL section 13: every user of a hosted copy is offered its source code.
+export function sourceFooter() {
+  const url = state.status?.sourceUrl ?? DEFAULT_SOURCE_URL;
+  return h('footer', { class: 'source-footer' },
+    'Loyalty Cards is free software under the AGPL-3.0. ',
+    h('a', { href: url, target: '_blank', rel: 'noopener' }, 'Source code'));
+}
 
 // Wraps a form submit: disables the button and shows errors inline.
 export function formHandler(handler) {
@@ -30,6 +43,7 @@ function authPage(title, intro, ...content) {
     h('h1', null, title),
     intro && h('p', { class: 'muted' }, intro),
     ...content,
+    sourceFooter(),
   );
 }
 

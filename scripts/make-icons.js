@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Draws the app icon (a card with a barcode) as PNGs, with no image library.
 // iOS needs a PNG apple-touch-icon; it rounds the corners itself.
 import { mkdirSync, writeFileSync } from 'node:fs';

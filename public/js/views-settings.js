@@ -1,7 +1,10 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { h, clear, field, toast } from './dom.js';
 import { api, navigate, state } from './state.js';
 import { offlineBanner, topBar } from './views-cards.js';
-import { formHandler } from './views-auth.js';
+import { formHandler, sourceFooter } from './views-auth.js';
 
 const fmtDate = (ms) => (ms ? new Date(ms).toLocaleDateString() : 'never');
 
@@ -62,6 +65,7 @@ export async function settingsView({ signOut, addPasskey, reloadMe }) {
       h('button', { class: 'btn btn-danger', onclick: signOut }, 'Sign out'),
       h('small', { class: 'muted' }, 'Signing out also removes saved cards from this device.'),
     ),
+    sourceFooter(),
   );
 }
 

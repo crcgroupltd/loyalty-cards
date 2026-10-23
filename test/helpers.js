@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { buildApp } from '../server/app.js';
 import { loadConfig } from '../server/config.js';
 

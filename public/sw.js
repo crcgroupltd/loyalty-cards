@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Service worker: keeps the app shell and barcode renderer available offline.
 // Card data itself is mirrored in IndexedDB by the app; logos are cached here.
 const VERSION = 'v2';

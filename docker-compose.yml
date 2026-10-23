@@ -12,5 +12,6 @@ services:
       TRUST_PROXY: "1"
       SETUP_TOKEN: "" # optional; otherwise printed in `docker compose logs`
       LOGO_API_KEY: "" # optional logo.dev secret key (sk_...)
+      # SOURCE_URL: https://github.com/you/your-fork # required by the AGPL if you run a modified version
     volumes:
       - ./data:/data

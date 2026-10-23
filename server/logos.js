@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Store logos, found by store name through a logo provider and downloaded by
 // the server. Phones only ever load logos from this server.
 import { createHash } from 'node:crypto';

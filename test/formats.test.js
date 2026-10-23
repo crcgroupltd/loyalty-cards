@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 // Round-trip test: render each symbology with bwip-js, decode it with
 // zxing-wasm (the same decoder the app uses to scan), and require the exact
 // same type and value back. This is what "the barcode matches the card" means.

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 CRC Group LTD
+
 import { FORMATS, FORMAT_KEYS, validate } from '../formats.js';
 import { renderBarcode } from './barcode.js';
 import { h, clear, field, initials, toast } from './dom.js';
