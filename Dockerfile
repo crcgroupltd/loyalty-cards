@@ -14,13 +14,15 @@ ENV NODE_ENV=production \
 
 WORKDIR /app
 
-# Dependencies first for better layer caching. The postinstall step copies
-# browser libraries and their licenses into public/vendor, so it needs the
-# scripts and license files.
+# Dependencies first for better layer caching. Install scripts are skipped:
+# better-sqlite3 ships prebuilt binaries for linux x64/arm64 and loads them at
+# runtime, but npm would otherwise try to compile it (no compiler in this
+# image). The vendor step below replaces our own postinstall script.
 COPY package.json package-lock.json LICENSE THIRD_PARTY_NOTICES.md ./
 COPY scripts ./scripts
 COPY licenses ./licenses
-RUN npm ci --omit=dev && npm cache clean --force
+RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force \
+ && node -e "require('better-sqlite3')(':memory:').close()"
 
 COPY server ./server
 COPY public ./public

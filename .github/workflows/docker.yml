@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - run: npm ci
+      # Same install as the image: prebuilt binaries, no compiling.
+      - run: npm ci --ignore-scripts
+      - run: npm run vendor
       - run: npm test
 
   publish:
