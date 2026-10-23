@@ -14,4 +14,11 @@ services:
       LOGO_API_KEY: "" # optional logo.dev secret key (sk_...)
       # SOURCE_URL: https://github.com/you/your-fork # required by the AGPL if you run a modified version
     volumes:
-      - ./data:/data
+      # Named volume: Docker creates it owned by the app's user, so there are
+      # no host permission problems. To use a host folder instead, replace
+      # with "./data:/data" and make the folder writable by UID 1000.
+      - wallet-data:/data
+
+volumes:
+  wallet-data:
+    name: loyalty-cards-data

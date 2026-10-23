@@ -87,13 +87,25 @@ The server sends **only the store name** to logo.dev. It downloads the logo thro
 
 ## Backups
 
-Everything lives in `./data`: `wallet.db` (SQLite) plus `logos/`. To back up while the app runs:
+Everything lives in the Docker volume `loyalty-cards-data`, mounted at `/data`: `wallet.db` (SQLite) plus `logos/`. It survives rebuilds and `docker compose down`, but `docker compose down -v` deletes it.
+
+To take a consistent snapshot of the database while the app runs:
 
 ```bash
-sqlite3 data/wallet.db ".backup data/wallet-backup.db"
+docker compose exec wallet node -e "require('better-sqlite3')('/data/wallet.db').backup('/data/wallet-backup.db').then(() => console.log('done'))"
 ```
 
-Or stop the container and copy the folder. Each user can also export their own cards as JSON from Settings.
+Then copy the snapshot and the logos out of the container:
+
+```bash
+docker compose cp wallet:/data/wallet-backup.db ./wallet-backup.db
+```
+
+```bash
+docker compose cp wallet:/data/logos ./logos-backup
+```
+
+To restore, stop the app, copy the file back as `/data/wallet.db`, and start it again. Each user can also export their own cards as JSON from Settings.
 
 ## Notes and limits
 
