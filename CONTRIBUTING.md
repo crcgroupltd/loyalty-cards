@@ -2,6 +2,8 @@
 
 Thanks for helping improve Loyalty Cards. Bug reports, barcode samples that don't scan, and pull requests are all welcome.
 
+Everyone taking part is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Before you start
 
 - **Security problems:** don't open a public issue. See [SECURITY.md](SECURITY.md).
