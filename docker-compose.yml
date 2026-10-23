@@ -1,0 +1,16 @@
+services:
+  wallet:
+    build: .
+    container_name: loyalty-cards
+    restart: unless-stopped
+    # Only your reverse proxy should reach this port. If the proxy runs in
+    # Docker on the same network, you can remove "ports" entirely.
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      ORIGIN: https://cards.example.com # change to your domain
+      TRUST_PROXY: "1"
+      SETUP_TOKEN: "" # optional; otherwise printed in `docker compose logs`
+      LOGO_API_KEY: "" # optional logo.dev secret key (sk_...)
+    volumes:
+      - ./data:/data
