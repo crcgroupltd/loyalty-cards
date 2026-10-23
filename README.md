@@ -15,17 +15,18 @@ A small self-hosted wallet for store loyalty cards, built for iPhone (it works o
 
 ## Run it
 
-You need Docker and a reverse proxy that serves HTTPS (Caddy, Traefik, Nginx Proxy Manager, …). iOS needs HTTPS for passkeys, the camera and offline mode. There is no published image yet, so Docker builds it from source.
+You need Docker and a reverse proxy that serves HTTPS (Caddy, Traefik, Nginx Proxy Manager, …). iOS needs HTTPS for passkeys, the camera and offline mode.
 
-1. Get the code:
+The image is published at `ghcr.io/bossmanc0/loyalty-cards` for amd64 and arm64 (Raspberry Pi), so you only need the compose file.
+
+1. Make a folder for it and download the compose file into it:
    ```bash
-   git clone https://github.com/BossManC0/loyalty-cards.git
+   curl -fsSLO https://raw.githubusercontent.com/BossManC0/loyalty-cards/main/docker-compose.yml
    ```
-   Then work inside the new `loyalty-cards` folder.
 2. Edit `docker-compose.yml`. Set `ORIGIN` to your public URL, exactly as the browser shows it, for example `https://cards.example.com`.
 3. Start it:
    ```bash
-   docker compose up -d --build
+   docker compose up -d
    ```
 4. Find your one-time setup token in the logs (unless you set `SETUP_TOKEN`):
    ```bash
@@ -34,6 +35,22 @@ You need Docker and a reverse proxy that serves HTTPS (Caddy, Traefik, Nginx Pro
 5. Open `https://cards.example.com/#/setup` and create the admin account.
 6. On your iPhone, open the site in Safari, then tap Share → **Add to Home Screen**. Open it from the Home Screen, go to Settings and tap **Add a passkey**.
 7. Invite the rest of the household: Settings → Household and invites → **Create invite link**.
+
+### Updating
+
+```bash
+docker compose pull
+```
+
+```bash
+docker compose up -d
+```
+
+Your data stays in the `loyalty-cards-data` volume. `:latest` follows the newest release; pin a version tag such as `:0.1.0` in `docker-compose.yml` if you'd rather upgrade on your own schedule.
+
+### Building from source
+
+Clone the repo. In `docker-compose.yml`, comment out the `image:` line, uncomment `build: .`, and run `docker compose up -d --build`.
 
 ### Caddy example
 
@@ -126,6 +143,8 @@ npm test
 ```
 
 The tests include an encode→decode round trip for every barcode type. Each barcode is drawn with bwip-js (the renderer the app uses) and read back with zxing-wasm (the scanner the app uses), and the test requires the exact same type and value.
+
+Releasing: push a version tag (for example `git tag v0.1.0` then `git push origin v0.1.0`). GitHub Actions runs the tests, then builds and publishes the image to GitHub Container Registry as `:0.1.0`, `:0.1` and `:latest` (see `.github/workflows/docker.yml`).
 
 Layout:
 - `server/`: Fastify API with SQLite.

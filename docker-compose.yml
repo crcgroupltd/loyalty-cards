@@ -1,6 +1,10 @@
 services:
   wallet:
-    build: .
+    # Published image (amd64 + arm64). Pin a version, e.g. :0.1.0, for
+    # controlled upgrades. To build from source instead, clone the repo,
+    # comment out "image" and uncomment "build".
+    image: ghcr.io/bossmanc0/loyalty-cards:latest
+    # build: .
     container_name: loyalty-cards
     restart: unless-stopped
     # Only your reverse proxy should reach this port. If the proxy runs in
