@@ -65,8 +65,11 @@ const routes = [
 let cleanups = [];
 let renderSeq = 0;
 
-async function render() {
+// keepScroll: re-drawing the same screen with fresh data, so stay where the
+// user has scrolled to instead of jumping to the top.
+async function render({ keepScroll = false } = {}) {
   const seq = ++renderSeq;
+  const scrollY = window.scrollY;
   cleanups.forEach((fn) => fn());
   cleanups = [];
   const hash = location.hash;
@@ -78,7 +81,7 @@ async function render() {
     const el = await view(hash.match(re).slice(1), (fn) => cleanups.push(fn));
     if (seq !== renderSeq) return;
     clear(root).append(el);
-    window.scrollTo(0, 0);
+    window.scrollTo(0, keepScroll ? scrollY : 0);
   } catch (e) {
     if (e instanceof ApiError && e.status === 401) return navigate('#/login');
     if (seq !== renderSeq) return;
@@ -86,11 +89,12 @@ async function render() {
   }
 }
 
-window.addEventListener('hashchange', render);
+window.addEventListener('hashchange', () => render());
 
-// Re-render the list when going on/offline so edit controls appear/disappear.
+// Re-render the list when cards change or the app goes on/offline (edit
+// controls appear/disappear), keeping the scroll position.
 onChange(() => {
-  if (/^(#\/?)?$/.test(location.hash)) render();
+  if (/^(#\/?)?$/.test(location.hash)) render({ keepScroll: true });
 });
 
 // ---- Startup ----

@@ -44,7 +44,8 @@ body {
 main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 max(16px, env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  /* Extra bottom room keeps the last row clear of the iPhone Home indicator. */
+  padding: 0 max(16px, env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
 }
 
 h1, h2 { margin: 0; line-height: 1.2; }
@@ -157,7 +158,10 @@ details.panel[open] > summary { margin-bottom: 12px; }
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
-  aspect-ratio: 1.586;
+  /* A fixed height, not aspect-ratio: in iOS Safari, grid rows sized by
+     aspect-ratio could end up shorter than the tiles, so the page stopped
+     scrolling before the last row. Roughly a card's shape on a phone. */
+  height: clamp(96px, 28vw, 140px);
   padding: 12px;
   border-radius: var(--radius);
   background: var(--card-color);

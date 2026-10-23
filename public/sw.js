@@ -3,7 +3,7 @@
 
 // Service worker: keeps the app shell and barcode renderer available offline.
 // Card data itself is mirrored in IndexedDB by the app; logos are cached here.
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL = `shell-${VERSION}`;
 const LOGOS = 'logos';
 

@@ -59,12 +59,15 @@ function setOffline(value) {
 }
 
 // Pulls the full card list and saves it to the device for offline use.
+// Only notifies listeners when the cards actually changed, so a background
+// refresh doesn't redraw the list under the user's finger.
 export async function refreshCards() {
   const data = await api('GET', '/api/cards');
+  const changed = JSON.stringify(data.cards) !== JSON.stringify(state.cards);
   state.cards = data.cards;
   state.syncedAt = data.synced_at;
   await saveMirror({ me: state.me, cards: state.cards, syncedAt: state.syncedAt });
-  emit();
+  if (changed) emit();
 }
 
 export async function loadMirror() {
