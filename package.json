@@ -1,6 +1,6 @@
 {
   "name": "loyalty-cards",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "description": "Self-hosted loyalty card wallet",
   "license": "AGPL-3.0-or-later",

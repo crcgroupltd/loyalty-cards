@@ -2,6 +2,10 @@
 
 All notable changes to this project are listed here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## 0.1.3 (2026-11-19)
+
+- **Security:** updated `@fastify/static`, which brings in patched versions of `glob` and `minimatch`. This fixes two moderate advisories (GHSA-3g3m-2fjr-6pw4 and GHSA-g3hv-75wg-m249). `npm audit` now reports no vulnerabilities.
+
 ## 0.1.2 (2026-10-22)
 
 - **Fixed:** on iPhone the card list could jump back to the top while scrolling, making the bottom cards hard to reach. Background refreshes no longer redraw the list unless a card changed, and redraws keep your scroll position.
